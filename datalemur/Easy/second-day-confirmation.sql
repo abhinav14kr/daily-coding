@@ -25,3 +25,18 @@ action_date	datetime
 SOLUTION: 
 
 
+WITH FIRST_CTE AS (
+  SELECT e.email_id as email_id, 
+  e.user_id as user_id, 
+  e.signup_date as signup_date,
+  t.signup_action as signup_action,
+  t.action_date as action_date
+  FROM texts t 
+  JOIN emails e 
+  ON e.email_id = t.email_id
+)
+
+SELECT user_id
+FROM FIRST_CTE
+WHERE action_date = signup_date + INTERVAL '1 DAY'
+AND signup_action = 'Confirmed'; 
