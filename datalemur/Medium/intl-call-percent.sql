@@ -26,3 +26,37 @@ international_calls_pct
 
 
 SOLUTION: 
+
+
+WITH FIRST_CTE AS (
+SELECT p.caller_id, p.receiver_id, i.country_id as country_id 
+FROM phone_calls p 
+LEFT JOIN phone_info i 
+ON p.caller_id = i.caller_id
+), 
+SECOND_CTE AS (
+SELECT p.caller_id, p.receiver_id, i.country_id as country_id 
+FROM phone_calls p 
+LEFT JOIN phone_info i 
+ON p.receiver_id = i.caller_id
+)
+, 
+THIRD_CTE AS (
+SELECT 
+CASE 
+  WHEN F.country_id != S.country_id then 1 ELSE 0 
+  END AS INTERNATIONAL_CALLS 
+FROM FIRST_CTE F 
+JOIN SECOND_CTE S 
+ON F.caller_id = S.caller_id 
+AND F.receiver_id = S.receiver_id
+), 
+FOURTH_CTE AS(
+SELECT 
+COUNT(CASE WHEN international_calls = 1 THEN 1 ELSE NULL END) AS international_calls_count,
+    COUNT(*) AS total_calls
+FROM THIRD_CTE
+)
+
+SELECT ROUND(100.00 * international_calls_count/total_calls,1) as international_calls_pct
+FROM FOURTH_CTE; 
