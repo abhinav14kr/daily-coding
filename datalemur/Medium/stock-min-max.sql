@@ -21,3 +21,36 @@ Apple Inc. (AAPL) achieved its highest opening price of $176.76 in May 2023 and 
 SOLUTION: 
 
 
+WITH FIRST_CTE AS (
+ SELECT 
+  ticker,
+  TO_CHAR(date, 'Mon-YYYY') AS highest_mth,
+  MAX(open) AS highest_open,
+  ROW_NUMBER() OVER (PARTITION BY ticker ORDER BY open DESC) AS row_num
+FROM stock_prices
+GROUP BY 1,2,open
+)
+, 
+SECOND_CTE AS (
+ SELECT 
+  ticker,
+  TO_CHAR(date, 'Mon-YYYY') AS lowest_mth,
+  MIN(open) AS lowest_open,
+  ROW_NUMBER() OVER (PARTITION BY ticker ORDER BY open ASC) AS row_num
+FROM stock_prices
+GROUP BY 1,2, open
+)
+
+SELECT 
+  f.ticker, 
+  f.highest_mth,
+  f.highest_open,
+  s.lowest_mth,
+  s.lowest_open
+FROM FIRST_CTE F 
+JOIN SECOND_CTE S 
+ON f.ticker = s.ticker
+AND F.row_num = 1 AND S.row_num = 1
+ORDER BY f.ticker
+; 
+
