@@ -17,6 +17,8 @@ Example Output:
 ticker	highest_mth	highest_open	lowest_mth	lowest_open
 AAPL	May-2023	176.76	Jan-2023	142.28
 Apple Inc. (AAPL) achieved its highest opening price of $176.76 in May 2023 and its lowest opening price of $142.28 in January 2023.
+'''
+
 
 SOLUTION: 
 
