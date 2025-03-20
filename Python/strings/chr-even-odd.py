@@ -1,10 +1,15 @@
 s = 'practisepython'
-
 i = 0 
 print('The characters at even index are: ')
 
 while i < len(s): 
-    print(s[i], end = ' ')
+    print(s[i])
     i = i + 2
     
-print('\n')
+    
+i = 1 
+print('The characters at odd index are: ')
+while i < len(s):
+    print(s[i])
+    i = i + 2
+    
