@@ -1,3 +1,4 @@
+'''
 Given the reviews table, write a query to retrieve the average star rating for each product, grouped by month. The output should display the month as a numerical value, product ID, and average star rating rounded to two decimal places. Sort the output first by month and then by product ID.
 
 P.S. If you've read the Ace the Data Science Interview, and liked it, consider writing us a review?
@@ -24,9 +25,7 @@ mth	product	avg_stars
 6	69852	4.00
 7	69852	2.50
 
-
-SOLUTION: 
-
+'''
 
 WITH FIRST_CTE AS (
   SELECT 

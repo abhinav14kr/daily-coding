@@ -1,11 +1,6 @@
+'''
 Assume you are given the table below on Uber transactions made by users. Write a query to obtain the third transaction of every user. Output the user id, spend and transaction date.
-
 transactions Table:
-Column Name	Type
-user_id	integer
-spend	decimal
-transaction_date	timestamp
-
 
 transactions Example Input:
 user_id	spend	transaction_date
@@ -20,11 +15,7 @@ Example Output:
 user_id	spend	transaction_date
 111	89.60	02/05/2022 12:00:00
 
-
-
-
-SOLUTION: 
-
+'''
 
 WITH FIRST_CTE AS (
   SELECT *, ROW_NUMBER ()  OVER (PARTITION BY user_id ORDER BY transaction_date) as third_transaction

@@ -1,20 +1,10 @@
+'''
 CVS Health wants to gain a clearer understanding of its pharmacy sales and the performance of various products.
-
 Write a query to calculate the total drug sales for each manufacturer. Round the answer to the nearest million and report your results in descending order of total sales. In case of any duplicates, sort them alphabetically by the manufacturer name.
-
 Since this data will be displayed on a dashboard viewed by business stakeholders, please format your results as follows: "$36 million".
-
 If you like this question, try out Pharmacy Analytics (Part 4)!
 
 pharmacy_sales Table:
-Column Name	Type
-product_id	integer
-units_sold	integer
-total_sales	decimal
-cogs	decimal
-manufacturer	varchar
-drug	varchar
-
 
 pharmacy_sales Example Input:
 product_id	units_sold	total_sales	cogs	manufacturer	drug
@@ -24,13 +14,12 @@ product_id	units_sold	total_sales	cogs	manufacturer	drug
 61	77023	500101.61	419174.97	Biogen	Varicose Relief
 136	144814	1084258.00	1006447.73	Biogen	Burkhart
 
-
 Example Output:
 manufacturer	sale
 Biogen	$4 million
 Eli Lilly	$3 million
 
-SOLUTION: 
+'''
 
 WITH sales_by_manufacturer AS (
   SELECT 

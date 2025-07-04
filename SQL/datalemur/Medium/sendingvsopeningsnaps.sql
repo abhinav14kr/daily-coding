@@ -1,3 +1,4 @@
+'''
 Write a query to obtain a breakdown of the time spent sending vs. opening snaps as a percentage of total time spent on these activities grouped by age group. Round the percentage to 2 decimal places in the output.
 
 Notes:
@@ -16,7 +17,6 @@ activity_id	user_id	activity_type	time_spent	activity_date
 1414	789	chat	11.00	06/25/2022 12:00:00
 2536	456	open	3.00	06/25/2022 12:00:00
 
-
 age_breakdown Example Input
 user_id	age_bucket
 123	31-35
@@ -27,9 +27,8 @@ Example Output
 age_bucket	send_perc	open_perc
 26-30	65.40	34.60
 31-35	43.75	56.25
-
-SOLUTION: 
-
+'''
+ 
 
 with first_cte as (
   SELECT user_id, SUM(time_spent) as time_spent_send
@@ -51,4 +50,5 @@ SELECT a.age_bucket as age_bucket,
   JOIN first_cte f ON f.user_id = a.user_id
   JOIN second_cte s ON s.user_id = f.user_id 
   GROUP BY 1,2,3
-; 
+;
+

@@ -1,4 +1,5 @@
-Assume you're given a table containing data on Amazon customers and their spending on products in different category, write a query to identify the top two highest-grossing products within each category in the year 2022. The output should include the category, product, and total spend.
+'''
+Assume you are given a table containing data on Amazon customers and their spending on products in different category, write a query to identify the top two highest-grossing products within each category in the year 2022. The output should include the category, product, and total spend.
 
 product_spend Example Input:
 category	product	user_id	spend	transaction_date
@@ -16,8 +17,7 @@ appliance	washing machine	219.80
 electronics	vacuum	341.00
 electronics	wireless headset	249.90
 
-SOLUTION:
-
+'''
 WITH FIRST_CTE AS (
   SELECT 
     category, 
