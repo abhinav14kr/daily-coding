@@ -16,3 +16,13 @@ quickbooks_count_cte AS (
 SELECT
     (SELECT total_count FROM turbotax_count_cte) as turbotax_total, 
     (SELECT total_count FROM quickbooks_count_cte) as quickbooks_total; 
+
+
+# or with CASE STATEMENT you can do this 
+
+
+SELECT
+    COUNT(CASE WHEN product LIKE '%TurboTax%' THEN 1 END) AS turbotax_total,
+    COUNT(CASE WHEN product LIKE '%QuickBooks%' THEN 1 END) AS quickbooks_total
+FROM
+    filed_taxes;
