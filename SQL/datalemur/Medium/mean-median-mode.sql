@@ -33,3 +33,27 @@ SELECT f.mean, s.mode, t.median
 FROM FIRST_CTE f
 CROSS JOIN SECOND_CTE s 
 CROSS JOIN THIRD_CTE t; 
+
+
+-- another efficient way to run the query to avoid three separate reading of the entire table is below
+
+
+WITH stats AS (
+  SELECT
+    email_count,
+    COUNT(*) OVER (PARTITION BY email_count) AS freq,
+    AVG(email_count) OVER () AS avg_email,
+    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY email_count) OVER () AS median
+  FROM inbox_stats
+),
+mode_cte AS (
+  SELECT email_count
+  FROM stats
+  ORDER BY freq DESC
+  LIMIT 1
+)
+SELECT
+  ROUND(AVG(avg_email)::numeric, 0) AS mean,
+  mode_cte.email_count AS mode,
+  MAX(median) AS median
+FROM mode_cte, stats;
