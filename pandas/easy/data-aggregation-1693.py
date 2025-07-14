@@ -22,3 +22,20 @@ def daily_leads_and_partners(daily_sales: pd.DataFrame) -> pd.DataFrame:
     result = daily_sales[['date_id','make_name', 'unique_leads','unique_partners']]
     result = result.drop_duplicates(subset=['date_id', 'make_name', 'unique_leads','unique_partners'], keep = 'first')
     return result
+
+
+
+# alternate and efficient solution
+
+import pandas as pd
+
+def daily_leads_and_partners(daily_sales: pd.DataFrame) -> pd.DataFrame:
+    result = (
+        daily_sales
+        .groupby(['date_id', 'make_name'], as_index=False)
+        .agg(
+            unique_leads=('lead_id', 'nunique'),
+            unique_partners=('partner_id', 'nunique')
+        )
+    )
+    return result
