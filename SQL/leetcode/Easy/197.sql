@@ -1,3 +1,5 @@
+'''
+
 197. Rising Temperature
 
 Table: Weather
@@ -14,13 +16,11 @@ There are no different rows with the same recordDate.
 This table contains information about the temperature on a certain day.
  
 
-Write a solution to find all dates' id with higher temperatures compared to its previous dates (yesterday).
-
+Write a solution to find all dates id with higher temperatures compared to its previous dates (yesterday).
 Return the result table in any order.
 
-The result format is in the following example.
+'''
 
- 
 
 Example 1:
 

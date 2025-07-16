@@ -1,16 +1,10 @@
+'''
+
 1907. Count Salary Categories
 
 Table: Accounts
-
-+-------------+------+
-| Column Name | Type |
-+-------------+------+
-| account_id  | int  |
-| income      | int  |
-+-------------+------+
 account_id is the primary key (column with unique values) for this table.
 Each row contains information about the monthly income for one bank account.
- 
 
 Write a solution to calculate the number of bank accounts for each salary category. The salary categories are:
 
@@ -21,6 +15,7 @@ The result table must contain all three categories. If there are no accounts in 
 
 Return the result table in any order.
 
+'''
 
 SOLUTION: 
 

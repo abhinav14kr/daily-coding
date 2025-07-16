@@ -1,7 +1,7 @@
+'''
 585. Investments in 2016
 
 Table: Insurance
-
 +-------------+-------+
 | Column Name | Type  |
 +-------------+-------+
@@ -13,11 +13,12 @@ Table: Insurance
 +-------------+-------+
 pid is the primary key (column with unique values) for this table.
 Each row of this table contains information about one policy where:
-pid is the policyholder's policy ID.
+pid is the policyholders policy ID.
 tiv_2015 is the total investment value in 2015 and tiv_2016 is the total investment value in 2016.
-lat is the latitude of the policy holder's city. It's guaranteed that lat is not NULL.
-lon is the longitude of the policy holder's city. It's guaranteed that lon is not NULL.
+lat is the latitude of the policy holders city. Its guaranteed that lat is not NULL.
+lon is the longitude of the policy holders city. Its guaranteed that lon is not NULL.
 
+'''
 
 
 SOLUTION: 
