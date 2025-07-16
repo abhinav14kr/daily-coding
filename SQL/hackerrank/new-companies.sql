@@ -8,11 +8,7 @@ The company_code is string, so the sorting should not be numeric. For example, i
 Input Format
 
 The following tables contain company data:
-Company: The company_code is the code of the company and founder is the founder of the company.
-Lead_Manager: The lead_manager_code is the code of the lead manager, and the company_code is the code of the working company.
-Senior_Manager: The senior_manager_code is the code of the senior manager, the lead_manager_code is the code of its lead manager, and the company_code is the code of the working company.
-Manager: The manager_code is the code of the manager, the senior_manager_code is the code of its senior manager, the lead_manager_code is the code of its lead manager, and the company_code is the code of the working company.
-Employee: The employee_code is the code of the employee, the manager_code is the code of its manager, the senior_manager_code is the code of its senior manager, the lead_manager_code is the code of its lead manager, and the company_code is the code of the working company.
+Company, Lead_Manager, Senior_Manager, Manager, Employee
 
 Sample Input
 Company Table:Lead_Manager Table:Senior_Manager Table:Manager Table:Employee Table:
