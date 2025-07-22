@@ -36,3 +36,12 @@ SELECT id
 FROM FIRST_TABLE 
 WHERE temperature > prev_day_temperature
 AND  recordDate = DATE_ADD(prev_record_day, INTERVAL 1 DAY);
+
+-- alternate solution
+
+SELECT w.id
+FROM Weather w 
+JOIN Weather WW 
+ON DATEDIFF(w.recordDate, ww.recordDate) = 1
+WHERE w.temperature > ww.temperature
+; 
