@@ -1,3 +1,18 @@
+'''
+words = ["apple", "dog", "banana", "cat", "apricot", "hat", "grape", "pie"]
+
+Group the words by their length, so the output looks like this:
+
+{
+  3: ["dog", "cat", "hat", "pie"],
+  5: ["apple", "grape"],
+  6: ["banana"],
+  7: ["apricot"]
+}
+
+'''
+
+
 words = ["apple", "dog", "banana", "cat", "apricot", "hat", "grape", "pie"]
 
 groups = {}
