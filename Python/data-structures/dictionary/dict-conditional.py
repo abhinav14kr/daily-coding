@@ -30,11 +30,6 @@ Your final output should be a dictionary like this:
 
 '''
 
-
-
-
-
-
 scores = [
         ("Alice", 85),
         ("Bob", 92),
