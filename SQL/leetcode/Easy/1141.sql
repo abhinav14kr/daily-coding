@@ -21,7 +21,6 @@ The result format is in the following example.
 
 '''
 
-# Write your MySQL query statement below
 SELECT 
     activity_date as day, 
     COUNT(DISTINCT user_id) AS active_users
